@@ -1,0 +1,34 @@
+n=int(input("Enter number of elements to sort: "))
+key=value=0
+l={}
+for i in range(n):
+    key=int(input("Enter key"+str(i)+": "))
+    value=input("Enter value"+str(i)+": ")
+    l[key]=value
+
+def RadixSort(n,m,maxi):
+    f=[]
+    s=[e for e in m]
+    for i in range(maxi):
+        for j in range(10):
+            for x in s:
+                if x[maxi-1-i]==str(j):
+                    f.append(x)
+        s=[e for e in f]
+        f=[]
+    
+    R=[int(x) for x in s]
+    print("Sorted keys: ",R)
+    
+maxi=0
+for x in l:
+    if maxi<len(str(x)):
+        maxi=len(str(x))
+       
+m=[str(x) for x in l]
+print("Unsorted keys: ",m)
+for i in range(len(m)):
+    while(len(m[i])<maxi):
+        m[i]='0'+m[i]
+
+RadixSort(n,m,maxi)
