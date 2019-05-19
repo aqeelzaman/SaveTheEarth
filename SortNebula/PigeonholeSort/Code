@@ -1,0 +1,28 @@
+n=int(input("Enter number of elements to sort: "))
+key=value=0
+l={}
+for i in range(n):
+    key=int(input("Enter key "+str(i+1)+": "))
+    value=input("Enter value "+str(i+1)+": ")
+    l[key]=value
+print("Key-value pairs are ",l)
+def PigeonHole(m,maxi,mini,R):
+    s=[0]*R
+    for i in range(len(m)):
+        s[m[i]-mini]+=1
+        
+    a=[x for x in m]
+    i=0
+    for x in range(R):
+        while s[x]>0: 
+            s[x]-=1
+            a[i]=x+mini 
+            i+=1
+    print("Sorted key values are ",a)  
+
+m=[int(x) for x in l]
+print("Unsorted keys are ",m)
+maxi=max(m)
+mini=min(m)
+R=maxi-mini+1
+PigeonHole(m,maxi,mini,R)
