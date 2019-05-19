@@ -2,9 +2,10 @@ n=int(input("Enter number of elements to sort: "))
 key=value=0
 l={}
 for i in range(n):
-    key=int(input("Enter key"+str(i)+": "))
-    value=input("Enter value"+str(i)+": ")
+    key=int(input("Enter key "+str(i+1)+": "))
+    value=input("Enter value "+str(i+1)+": ")
     l[key]=value
+print("Key-value pairs are ",l)
 
 def RadixSort(n,m,maxi):
     f=[]
