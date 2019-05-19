@@ -16,3 +16,5 @@ It first creates a list with the size of range R, filling it with zeros. Next, e
 mini and now that is its index position. it is added to that index position in lines 12-13. this will include a list of 0s and 1s.
 The values are now known where to be placed so Lines 17-21 places the elements back in a new list 'a' with
 length of m. it places in the correct sorted position with help of the list of 0s and 1s made earlier.
+
+Finally the sorted list of keys are printed. 
