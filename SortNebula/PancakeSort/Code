@@ -1,0 +1,36 @@
+n=int(input("Enter number of elements to sort: "))
+key=value=0
+k={}
+for i in range(n):
+    key=int(input("Enter key "+str(i+1)+": "))
+    value=input("Enter value "+str(i+1)+": ")
+    k[key]=value
+print("Key-value pairs are ",k)
+
+l=[x for x in k]
+m=[]
+print("Unsorted keys: ",l)
+def flip(l,ind):
+    temp=start=0
+    while start<ind:
+        temp=l[start]
+        l[start]=l[ind]
+        l[ind]=temp
+        start+=1
+        ind-=1
+
+def modify(l,m,i):
+    m.insert(0,l[i-1])
+    l[i-1]=0
+    return l
+    
+i=len(l) 
+while i>0:
+    maxi=max(l)
+    ind=l.index(maxi)
+    flip(l,ind)
+    flip(l,i-1)
+    l=modify(l,m,i)
+    i-=1
+
+print("Sorted keys: ",m)
